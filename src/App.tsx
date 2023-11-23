@@ -2,7 +2,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import qs from 'qs';
-import Table from '.';
+import Table from './Table/src';
+import Pagination from './Pagination/src/Pagination';
 
 interface DataType {
   name: {
@@ -66,6 +67,8 @@ const App: React.FC = () => {
     },
   });
 
+  const { current, pageSize, total } = tableParams.pagination;
+
   const fetchData = () => {
     setLoading(true);
     fetch(
@@ -106,13 +109,27 @@ const App: React.FC = () => {
   //   }
   // };
 
+  const handleChange = (page: any) => {
+    console.log(page);
+    setTableParams({
+      ...tableParams,
+      pagination: {
+        ...tableParams.pagination,
+        current: page,
+      },
+    });
+  };
+
   return (
-    <Table
-      columns={columns}
-      data={data}
-      caption={sample()}
-  
-    />
+    <div>
+      <Table columns={columns} data={data} caption={sample()} />
+      <Pagination
+        current={current}
+        pageSize={pageSize}
+        total={total}
+        onChange={handleChange}
+      />
+    </div>
   );
 };
 
