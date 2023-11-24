@@ -93,21 +93,10 @@ const App: React.FC = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    if (!loading) {
+      fetchData();
+    }
   }, [JSON.stringify(tableParams)]);
-
-  // const handleTableChange = (pagination: any, filters: any, sorter: any) => {
-  //   setTableParams({
-  //     pagination,
-  //     filters,
-  //     ...sorter,
-  //   });
-
-  //   // `dataSource` is useless since `pageSize` changed
-  //   if (pagination.pageSize !== tableParams.pagination?.pageSize) {
-  //     setData([]);
-  //   }
-  // };
 
   const handleChange = (page: any) => {
     console.log(page);
