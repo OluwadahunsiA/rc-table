@@ -1,12 +1,17 @@
 import { createGlobalStyle } from 'styled-components';
+import next_arrow from '../assets/next_arrow.svg';
+import prev_arrow from '../assets/prev_arrow.svg';
 
 const GlobalStyle = createGlobalStyle`
 .rc-pagination {
-	 margin: 0;
-	 padding: 0;
-	 font-size: 14px;
-   color: #3E3E3E;
-   font-family: SF Pro Display;
+  margin: 0;
+  padding: 0;
+  display:flex;
+  color: #3E3E3E;
+  margin-top:10px;
+  font-size: 14px;
+  justify-content:center;
+  font-family: SF Pro Display;
 }
  .rc-pagination ul, .rc-pagination ol {
 	 margin: 0;
@@ -33,64 +38,73 @@ const GlobalStyle = createGlobalStyle`
 	 min-width: 28px;
 	 height: 28px;
 	 margin-right: 8px;
-	//  font-family: Arial;
    font-family: SF Pro Display;
 	 line-height: 26px;
 	 text-align: center;
 	 vertical-align: middle;
 	 list-style: none;
 	 background-color: #fff;
-	//  border: 1px solid #d9d9d9;
-	//  border-radius: 2px;
 	 outline: 0;
 	 cursor: pointer;
 	 user-select: none;
 }
  .rc-pagination-item a {
 	 display: block;
-	 padding: 0 6px;
-	//  color: rgba(0,0,0,0.85);
 	 transition: none;
 }
  .rc-pagination-item a:hover {
 	 text-decoration: none;
-   border-radius: 1000px;
-   border: 2px solid #1D64CE;
+   border-radius: 50%;
+   outline: 2px solid #1D64CE;
 }
  .rc-pagination-item:focus, .rc-pagination-item:hover {
 	 border-color: #1890ff;
 	 transition: all 0.3s;
 }
  .rc-pagination-item:focus a, .rc-pagination-item:hover a {
-	//  color: #1890ff;
+  text-decoration: none;
 }
  .rc-pagination-item-active {
-	//  font-weight: 500;
-	//  background: #fff;
-	//  border-color: #1890ff;
+  text-decoration: none;
 }
  .rc-pagination-item-active a {
-	 color: #1890ff;
+   text-decoration:none;
+   border-radius: 50%;
+   outline: 2px solid #1D64CE;
 }
  .rc-pagination-item-active:focus, .rc-pagination-item-active:hover {
 	 border-color: #40a9ff;
 }
  .rc-pagination-item-active:focus a, .rc-pagination-item-active:hover a {
-	 color: #40a9ff;
+	//  color: #40a9ff;
 }
  .rc-pagination-jump-prev, .rc-pagination-jump-next {
 	 outline: 0;
 }
- .rc-pagination-jump-prev button, .rc-pagination-jump-next button {
+//  .rc-pagination-jump-prev button, .rc-pagination-jump-next button {
+// 	 background: transparent;
+// 	 border: none;
+// 	 cursor: pointer;
+// 	 color: #666;
+// }
+
+ .rc-pagination-jump-prev div, .rc-pagination-jump-next div {
 	 background: transparent;
 	 border: none;
 	 cursor: pointer;
 	 color: #666;
 }
- .rc-pagination-jump-prev button:after, .rc-pagination-jump-next button:after {
-	 display: block;
+//  .rc-pagination-jump-prev button:after, .rc-pagination-jump-next button:after {
+// 	 display: block;
+// 	 content: '•••';
+//    color: #ADADAD;
+// }
+
+ .rc-pagination-jump-prev div:after, .rc-pagination-jump-next div:after {
+   display: block;
 	 content: '•••';
-}
+   color: #ADADAD;
+ }
  .rc-pagination-prev, .rc-pagination-jump-prev, .rc-pagination-jump-next {
 	 margin-right: 8px;
 }
@@ -111,23 +125,35 @@ const GlobalStyle = createGlobalStyle`
  .rc-pagination-prev, .rc-pagination-next {
 	 outline: 0;
 }
- .rc-pagination-prev button, .rc-pagination-next button {
+//  .rc-pagination-prev button, .rc-pagination-next button {
+// 	 color: rgba(0,0,0,0.85);
+// 	 cursor: pointer;
+// 	 user-select: none;
+// }
+
+ .rc-pagination-prev div, .rc-pagination-next div {
 	 color: rgba(0,0,0,0.85);
 	 cursor: pointer;
 	 user-select: none;
 }
- .rc-pagination-prev:hover button, .rc-pagination-next:hover button {
+
+//  .rc-pagination-prev:hover button, .rc-pagination-next:hover button {
+// 	 border-color: #40a9ff;
+// }
+
+ .rc-pagination-prev:hover div, .rc-pagination-next:hover div {
 	 border-color: #40a9ff;
 }
+
+
  .rc-pagination-prev .rc-pagination-item-link, .rc-pagination-next .rc-pagination-item-link {
 	 display: block;
 	 width: 100%;
 	 height: 100%;
-	 font-size: 12px;
+	 font-size: 14px;
 	 text-align: center;
 	 background-color: #fff;
-	 border: 1px solid #d9d9d9;
-	 border-radius: 2px;
+   margin-top:2px;
 	 outline: none;
 	 transition: all 0.3s;
 }
@@ -135,14 +161,27 @@ const GlobalStyle = createGlobalStyle`
 	 color: #1890ff;
 	 border-color: #1890ff;
 }
- .rc-pagination-prev button:after {
-	 content: '‹';
+
+
+ .rc-pagination-prev div:after {
+	 content: url(${prev_arrow});
 	 display: block;
 }
- .rc-pagination-next button:after {
-	 content: '›';
+
+ .rc-pagination-next div:after {
+	 content: url(${next_arrow});
 	 display: block;
 }
+
+.rc-pagination-disabled {
+  opacity:0;
+}
+
+.pagerList{
+ 
+  display:flex;
+}
+
  .rc-pagination-disabled, .rc-pagination-disabled:hover, .rc-pagination-disabled:focus {
 	 cursor: not-allowed;
 }

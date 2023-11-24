@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import pickAttrs from 'rc-util/lib/pickAttrs';
 import React, { cloneElement, isValidElement } from 'react';
 import KEYCODE from './KeyCode';
-import LOCALE from './locale/zh_CN';
+import LOCALE from './locale/ru_RU';
 import Options from './Options';
 import Pager from './Pager';
 import GlobalStyle from './styled';
@@ -222,8 +222,8 @@ class Pagination extends React.Component<PaginationProps, PaginationState> {
   ) => {
     const { prefixCls } = this.props;
     let iconNode = icon || (
-      <button
-        type='button'
+      <div
+        // type='button'
         aria-label={label}
         className={`${prefixCls}-item-link`}
       />
@@ -507,13 +507,13 @@ class Pagination extends React.Component<PaginationProps, PaginationState> {
       if (goButton) {
         if (typeof goButton === 'boolean') {
           gotoButton = (
-            <button
-              type='button'
+            <div
+              // type='button'
               onClick={this.handleGoTO}
               onKeyUp={this.handleGoTO}
             >
               {locale.jump_to_confirm}
-            </button>
+            </div>
           );
         } else {
           gotoButton = (
@@ -796,7 +796,7 @@ class Pagination extends React.Component<PaginationProps, PaginationState> {
               {prev}
             </li>
           ) : null}
-          {pagerList}
+          <div className='pagerList'>{pagerList}</div>
           {next ? (
             <li
               title={showTitle ? locale.next_page : null}
