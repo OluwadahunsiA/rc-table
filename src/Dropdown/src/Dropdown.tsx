@@ -13,6 +13,7 @@ import React from 'react';
 import useAccessibility from './hooks/useAccessibility';
 import Overlay from './Overlay';
 import Placements from './placements';
+import GlobalStyle from './styled';
 
 export interface DropdownProps
   extends Pick<
@@ -136,12 +137,12 @@ function Dropdown(props: DropdownProps, ref) {
   const childrenNode = React.cloneElement(children, {
     className: classNames(
       children.props?.className,
-      mergedVisible && getOpenClassName(),
+      mergedVisible && getOpenClassName()
     ),
     ref: supportRef(children)
       ? composeRef(
           childRef,
-          (children as ReactElement & { ref: React.Ref<HTMLElement> }).ref,
+          (children as ReactElement & { ref: React.Ref<HTMLElement> }).ref
         )
       : undefined,
   });
@@ -152,31 +153,34 @@ function Dropdown(props: DropdownProps, ref) {
   }
 
   return (
-    <Trigger
-      builtinPlacements={placements}
-      {...otherProps}
-      prefixCls={prefixCls}
-      ref={triggerRef}
-      popupClassName={classNames(overlayClassName, {
-        [`${prefixCls}-show-arrow`]: arrow,
-      })}
-      popupStyle={overlayStyle}
-      action={trigger}
-      showAction={showAction}
-      hideAction={triggerHideAction}
-      popupPlacement={placement}
-      popupAlign={align}
-      popupTransitionName={transitionName}
-      popupAnimation={animation}
-      popupVisible={mergedVisible}
-      stretch={getMinOverlayWidthMatchTrigger() ? 'minWidth' : ''}
-      popup={getMenuElementOrLambda()}
-      onPopupVisibleChange={handleVisibleChange}
-      onPopupClick={onClick}
-      getPopupContainer={getPopupContainer}
-    >
-      {childrenNode}
-    </Trigger>
+    <>
+      <GlobalStyle />
+      <Trigger
+        builtinPlacements={placements}
+        {...otherProps}
+        prefixCls={prefixCls}
+        ref={triggerRef}
+        popupClassName={classNames(overlayClassName, {
+          [`${prefixCls}-show-arrow`]: arrow,
+        })}
+        popupStyle={overlayStyle}
+        action={trigger}
+        showAction={showAction}
+        hideAction={triggerHideAction}
+        popupPlacement={placement}
+        popupAlign={align}
+        popupTransitionName={transitionName}
+        popupAnimation={animation}
+        popupVisible={mergedVisible}
+        stretch={getMinOverlayWidthMatchTrigger() ? 'minWidth' : ''}
+        popup={getMenuElementOrLambda()}
+        onPopupVisibleChange={handleVisibleChange}
+        onPopupClick={onClick}
+        getPopupContainer={getPopupContainer}
+      >
+        {childrenNode}
+      </Trigger>
+    </>
   );
 }
 

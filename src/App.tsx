@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import qs from 'qs';
 import Table from './Table/src';
 import Pagination from './Pagination/src/Pagination';
+import Dropdown from './Dropdown/src';
 
 interface DataType {
   name: {
@@ -46,7 +47,14 @@ const columns = [
     render: (name: { first: any; last: any }) => `${name.first} ${name.last}`,
   },
   {
-    title: 'Gender',
+    title: (
+      <div>
+        Gender{' '}
+        <Dropdown trigger={['click']}>
+          <span>filter</span>
+        </Dropdown>
+      </div>
+    ),
     dataIndex: 'gender',
     render: (value) => renderGender(value),
   },
@@ -61,7 +69,6 @@ const getRandomuserParams = (params: TableParams) => ({
   page: params.pagination?.current,
   ...params,
 });
-
 
 const App: React.FC = () => {
   const [data, setData] = useState<DataType[]>();
@@ -105,7 +112,6 @@ const App: React.FC = () => {
   }, [JSON.stringify(tableParams)]);
 
   const handleChange = (page: any) => {
-    console.log(page);
     setTableParams({
       ...tableParams,
       pagination: {
