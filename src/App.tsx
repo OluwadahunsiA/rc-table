@@ -30,7 +30,7 @@ const columns = [
     dataIndex: 'name',
     sorter: true,
     render: (name: { first: any; last: any }) => `${name.first} ${name.last}`,
-    width: '20%',
+    // width: '20%',
   },
   {
     title: 'Gender',
@@ -39,7 +39,7 @@ const columns = [
       { text: 'Male', value: 'male' },
       { text: 'Female', value: 'female' },
     ],
-    width: '20%',
+    // width: '20%',
   },
   {
     title: 'Email',
@@ -111,7 +111,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <Table columns={columns} data={data} caption={sample()} />
+      <Table columns={columns} data={data} />
       <Pagination
         current={current}
         pageSize={pageSize}

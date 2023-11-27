@@ -50,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
 	 padding: 16px 8px;
 	 white-space: normal;
 	 word-break: break-word;
-	 border: 1px solid #b5adad;
+	//  border: 1px solid #b5adad;
 	 border-top: 0;
 	 border-left: 0;
 	 transition: box-shadow 0.3s;
@@ -59,9 +59,10 @@ const GlobalStyle = createGlobalStyle`
 	 border-right: 0;
 	 border-left: 1px solid #b5adad;
 }
- .rc-table-cell {
-	 background: #f4f4f4;
-}
+//  .rc-table-cell {
+// 	 background: #f4f4f4;
+// }
+
  .rc-table-cell-fix-left, .rc-table-cell-fix-right {
 	 z-index: 2;
 }
@@ -121,9 +122,10 @@ const GlobalStyle = createGlobalStyle`
 	 overflow: hidden;
 	 text-overflow: ellipsis;
 }
- .rc-table-cell.rc-table-cell-row-hover {
-	 background: #f3f1f1;
-}
+//  .rc-table-cell.rc-table-cell-row-hover {
+// 	 background: #f3f1f1;
+// }
+
  .rc-table-ping-left .rc-table-cell-fix-left-first::after, .rc-table-ping-left .rc-table-cell-fix-left-last::after {
 	 box-shadow: inset 10px 0 8px -8px green;
 }
@@ -138,7 +140,7 @@ const GlobalStyle = createGlobalStyle`
 }
  .rc-table thead th {
 	 text-align: center;
-	 background: #f7f7f7;
+	 background:#EBEBF5;
 }
  .rc-table thead .rc-table-cell-scrollbar::after {
 	 position: absolute;
@@ -161,17 +163,27 @@ const GlobalStyle = createGlobalStyle`
  .rc-table-placeholder {
 	 text-align: center;
 }
- .rc-table tbody tr td {
-	 background: #fff;
+
+
+//  .rc-table tbody tr td {
+// 	 background: #fff;
+// }
+
+.rc-table tbody tr:nth-child(even) {
+	background: #F0F0F0
 }
+
  .rc-table tbody tr th {
 	 background: #f7f7f7;
 }
+
+
  .rc-table-content {
-	 border: 1px solid #b5adad;
+	//  border: 1px solid #b5adad;
 	 border-right: 0;
 	 border-bottom: 0;
 	 border-radius: 5px 0 0 0;
+	 text-align:center;
 }
  .rc-table-body {
 	 border: 1px solid #b5adad;
