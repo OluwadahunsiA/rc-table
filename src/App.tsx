@@ -24,22 +24,31 @@ interface TableParams {
   filters?: Record<string, any>;
 }
 
+const renderGender = (gender) => {
+  const style = {
+    display: 'inline-block',
+    borderRadius: '20px',
+    border: `1px solid ${gender === 'male' ? '#FF8800FA' : '#4C911D'}`,
+    padding: '0px 8px',
+    background: `${gender === 'male' ? '#FEFFD9' : '#D9FFE1'}`,
+    width: '50px',
+    alignText: 'center',
+  };
+
+  return <span style={style}>{gender}</span>;
+};
+
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
     sorter: true,
     render: (name: { first: any; last: any }) => `${name.first} ${name.last}`,
-    // width: '20%',
   },
   {
     title: 'Gender',
     dataIndex: 'gender',
-    filters: [
-      { text: 'Male', value: 'male' },
-      { text: 'Female', value: 'female' },
-    ],
-    // width: '20%',
+    render: (value) => renderGender(value),
   },
   {
     title: 'Email',
@@ -53,9 +62,6 @@ const getRandomuserParams = (params: TableParams) => ({
   ...params,
 });
 
-const sample = () => {
-  return <div>Is this a react node</div>;
-};
 
 const App: React.FC = () => {
   const [data, setData] = useState<DataType[]>();
