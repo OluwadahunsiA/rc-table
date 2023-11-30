@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import qs from 'qs';
 import Table from './Table/src';
 import Pagination from './Pagination/src/Pagination';
-import Dropdown from './Dropdown/src';
+// import Dropdown from './Dropdown/src';
 
 interface DataType {
   name: {
@@ -25,15 +25,21 @@ interface TableParams {
   filters?: Record<string, any>;
 }
 
-const renderGender = (gender) => {
+const renderStatus = (gender) => {
   const style = {
-    display: 'inline-block',
-    borderRadius: '20px',
-    border: `1px solid ${gender === 'male' ? '#FF8800FA' : '#4C911D'}`,
-    padding: '0px 8px',
-    background: `${gender === 'male' ? '#FEFFD9' : '#D9FFE1'}`,
-    width: '50px',
+    padding: '4px',
+    borderRadius: '8px',
+    minWidth: '50px',
     alignText: 'center',
+    display: 'inline-block',
+    background: `${gender === 'male' ? '#ECFCCB' : '#DBEAFE'}`,
+    color: '#1E3A8A',
+    fontFamily: 'SF Pro Display',
+    fontSize: '14px',
+    fontStyle: 'normal',
+    fontWeight: '500',
+    lineHeight: '20px',
+    letterSpacing: '0.1px',
   };
 
   return <span style={style}>{gender}</span>;
@@ -47,16 +53,9 @@ const columns = [
     render: (name: { first: any; last: any }) => `${name.first} ${name.last}`,
   },
   {
-    title: (
-      <div>
-        Gender{' '}
-        <Dropdown trigger={['click']}>
-          <span>filter</span>
-        </Dropdown>
-      </div>
-    ),
+    title: 'Gender',
     dataIndex: 'gender',
-    render: (value) => renderGender(value),
+    render: (value) => renderStatus(value),
   },
   {
     title: 'Email',

@@ -30,12 +30,20 @@ const GlobalStyle = createGlobalStyle`
 //table
 
 .rc-table {
-	 position: relative;
-	 box-sizing: border-box;
-	 color: #666;
-	 font-size: 12px;
-	 line-height: 1.5;
+	position: relative;
+	box-sizing: border-box;
+	font-family: Inter;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+
 }
+
+// .rc-table-container{
+// 	width:100%;
+// }
+
  .rc-table-rtl {
 	 direction: rtl;
 }
@@ -43,6 +51,8 @@ const GlobalStyle = createGlobalStyle`
 	 width: 100%;
 	 border-spacing: 0px;
 }
+
+
  .rc-table th, .rc-table td {
 	 position: relative;
 	 box-sizing: border-box;
@@ -50,18 +60,20 @@ const GlobalStyle = createGlobalStyle`
 	 padding: 16px 8px;
 	 white-space: normal;
 	 word-break: break-word;
-	//  border: 1px solid #b5adad;
 	 border-top: 0;
 	 border-left: 0;
 	 transition: box-shadow 0.3s;
+	 
+	
 }
  .rc-table-rtl.rc-table th, .rc-table-rtl.rc-table td {
 	 border-right: 0;
 	 border-left: 1px solid #b5adad;
 }
-//  .rc-table-cell {
-// 	 background: #f4f4f4;
-// }
+.rc-table-cell {
+  border-bottom:0.5px solid #C7C7C7;
+	
+ }
 
  .rc-table-cell-fix-left, .rc-table-cell-fix-right {
 	 z-index: 2;
@@ -122,9 +134,7 @@ const GlobalStyle = createGlobalStyle`
 	 overflow: hidden;
 	 text-overflow: ellipsis;
 }
-//  .rc-table-cell.rc-table-cell-row-hover {
-// 	 background: #f3f1f1;
-// }
+
 
  .rc-table-ping-left .rc-table-cell-fix-left-first::after, .rc-table-ping-left .rc-table-cell-fix-left-last::after {
 	 box-shadow: inset 10px 0 8px -8px green;
@@ -139,9 +149,11 @@ const GlobalStyle = createGlobalStyle`
 	 text-align: center;
 }
  .rc-table thead th {
-	 text-align: center;
-	 background:#EBEBF5;
+	text-align: center;
+	color: #484848;
+	font-weight: 90;
 }
+
  .rc-table thead .rc-table-cell-scrollbar::after {
 	 position: absolute;
 	 top: 0;
@@ -169,17 +181,13 @@ const GlobalStyle = createGlobalStyle`
 // 	 background: #fff;
 // }
 
-.rc-table tbody tr:nth-child(even) {
-	background: #F0F0F0
-}
-
  .rc-table tbody tr th {
-	 background: #f7f7f7;
+	//  background: #f7f7f7;
+
 }
 
 
  .rc-table-content {
-	//  border: 1px solid #b5adad;
 	 border-right: 0;
 	 border-bottom: 0;
 	 border-radius: 5px 0 0 0;
@@ -245,8 +253,8 @@ const GlobalStyle = createGlobalStyle`
 }
  .rc-table-caption {
 	 padding: 16px 8px;
-	 border-right: 1px solid #b5adad;
-	 border-bottom: 1px solid #b5adad;
+	//  border-right: 1px solid #b5adad;
+	//  border-bottom: 1px solid #b5adad;
 }
  .rc-table-footer {
 	 padding: 16px 8px;

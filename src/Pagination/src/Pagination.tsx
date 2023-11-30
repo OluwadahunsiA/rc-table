@@ -226,7 +226,9 @@ class Pagination extends React.Component<PaginationProps, PaginationState> {
         // type='button'
         aria-label={label}
         className={`${prefixCls}-item-link`}
-      />
+      >
+        <span className={`${prefixCls}-item-image`}></span>
+      </div>
     );
     if (typeof icon === 'function') {
       iconNode = React.createElement(icon, { ...this.props });

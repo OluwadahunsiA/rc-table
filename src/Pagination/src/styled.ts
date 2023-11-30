@@ -6,13 +6,22 @@ const GlobalStyle = createGlobalStyle`
 .rc-pagination {
   margin: 0;
   padding: 0;
+	display:flex;
+	align-items:center;
   display:flex;
-  color: #3E3E3E;
+  color:  #4A545E;
   margin-top:10px;
   font-size: 14px;
+  font-style: normal;
   justify-content:center;
   font-family: SF Pro Display;
 }
+
+.pagerList{
+	display:flex;
+	margin: 0px 20px;
+}
+
  .rc-pagination ul, .rc-pagination ol {
 	 margin: 0;
 	 padding: 0;
@@ -34,28 +43,32 @@ const GlobalStyle = createGlobalStyle`
 	 vertical-align: middle;
 }
  .rc-pagination-item {
-	 display: inline-block;
-	 min-width: 28px;
-	 height: 28px;
-	 margin-right: 8px;
-   font-family: SF Pro Display;
+	 
+	 width:40px;
+	 height: 40px;
 	 line-height: 26px;
 	 text-align: center;
-	 vertical-align: middle;
 	 list-style: none;
 	 background-color: #fff;
 	 outline: 0;
 	 cursor: pointer;
 	 user-select: none;
+	 display:flex;
+	 gap:8px;
+	 justify-content:center;
+	 align-items:center;
+
 }
  .rc-pagination-item a {
 	 display: block;
 	 transition: none;
 }
- .rc-pagination-item a:hover {
+
+ .rc-pagination-item:hover {
 	 text-decoration: none;
-   border-radius: 50%;
-   outline: 2px solid #1D64CE;
+	 justify-content: center;
+	 border-radius:8px;
+	 background: #DBEAFE;
 }
  .rc-pagination-item:focus, .rc-pagination-item:hover {
 	 border-color: #1890ff;
@@ -67,10 +80,10 @@ const GlobalStyle = createGlobalStyle`
  .rc-pagination-item-active {
   text-decoration: none;
 }
- .rc-pagination-item-active a {
+ .rc-pagination-item-active {
    text-decoration:none;
-   border-radius: 50%;
-   outline: 2px solid #1D64CE;
+   border-radius: 8px;
+    background: #DBEAFE;
 }
  .rc-pagination-item-active:focus, .rc-pagination-item-active:hover {
 	 border-color: #40a9ff;
@@ -93,25 +106,24 @@ const GlobalStyle = createGlobalStyle`
 	 border: none;
 	 cursor: pointer;
 	 color: #666;
+	 width:40px;
+	 height: 40px;
+	 display:flex;
+	 justify-content:center;
+	 align-items:center;
 }
-//  .rc-pagination-jump-prev button:after, .rc-pagination-jump-next button:after {
-// 	 display: block;
-// 	 content: '•••';
-//    color: #ADADAD;
-// }
 
  .rc-pagination-jump-prev div:after, .rc-pagination-jump-next div:after {
    display: block;
 	 content: '•••';
    color: #ADADAD;
  }
+
  .rc-pagination-prev, .rc-pagination-jump-prev, .rc-pagination-jump-next {
-	 margin-right: 8px;
+	 margin-right: 25px;
 }
+
  .rc-pagination-prev, .rc-pagination-next, .rc-pagination-jump-prev, .rc-pagination-jump-next {
-	 display: inline-block;
-	 min-width: 28px;
-	 height: 28px;
 	 color: rgba(0,0,0,0.85);
 	 font-family: Arial;
 	 line-height: 28px;
@@ -135,15 +147,20 @@ const GlobalStyle = createGlobalStyle`
 	 color: rgba(0,0,0,0.85);
 	 cursor: pointer;
 	 user-select: none;
+	 display:flex;
+	 justify-content: center;
+   align-items: center;
+	 border-radius:8px;
+	 box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.30), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 
 //  .rc-pagination-prev:hover button, .rc-pagination-next:hover button {
 // 	 border-color: #40a9ff;
 // }
 
- .rc-pagination-prev:hover div, .rc-pagination-next:hover div {
-	 border-color: #40a9ff;
-}
+//  .rc-pagination-prev:hover div, .rc-pagination-next:hover div {
+// 	 border-color: #40a9ff;
+// }
 
 
  .rc-pagination-prev .rc-pagination-item-link, .rc-pagination-next .rc-pagination-item-link {
@@ -157,30 +174,49 @@ const GlobalStyle = createGlobalStyle`
 	 outline: none;
 	 transition: all 0.3s;
 }
- .rc-pagination-prev:focus .rc-pagination-item-link, .rc-pagination-prev:hover .rc-pagination-item-link, .rc-pagination-next:focus .rc-pagination-item-link, .rc-pagination-next:hover .rc-pagination-item-link {
-	 color: #1890ff;
-	 border-color: #1890ff;
+//  .rc-pagination-prev:focus .rc-pagination-item-link, .rc-pagination-prev:hover .rc-pagination-item-link, .rc-pagination-next:focus .rc-pagination-item-link, .rc-pagination-next:hover .rc-pagination-item-link {
+// 	 border-color: #1890ff;
+// }
+
+.rc-pagination-prev div, .rc-pagination-next div{
+	position:relative;
+	padding:5px 12px;
+	height:40px;
 }
 
+.rc-pagination-prev div:before{
+	position:absolute;
+	content:url(${prev_arrow});
+	left:20px;
+	top:7.8px;
+}
 
  .rc-pagination-prev div:after {
-	 content: url(${prev_arrow});
-	 display: block;
+	content: 'Назад';
+	margin-left:18px;
+}
+
+.rc-pagination-next div:before{
+	position:absolute;
+	content:url(${next_arrow});
+	right:20px;
+	top:7.8px;
+
 }
 
  .rc-pagination-next div:after {
-	 content: url(${next_arrow});
-	 display: block;
+	 content: 'Вперед';
+	 margin-right:14px;
 }
 
 .rc-pagination-disabled {
-  opacity:0;
+  opacity: 0.5;
+	color:
 }
 
-.pagerList{
- 
-  display:flex;
-}
+
+
+
 
  .rc-pagination-disabled, .rc-pagination-disabled:hover, .rc-pagination-disabled:focus {
 	 cursor: not-allowed;
